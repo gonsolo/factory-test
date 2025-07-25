@@ -1,0 +1,5 @@
+export PDK_ROOT=~/src/factory-test/pdk
+export PDK=ihp-sg13g2
+export OPENLANE_IMAGE_OVERRIDE=ghcr.io/tinytapeout/openlane2:ihp-v3.0.0.dev23
+
+klayout -b -r /usr/lib/python3.13/site-packages/openlane/scripts/klayout/stream_out.py /home/gonsolo/src/factory-test/runs/wokwi/53-odb-cellfrequencytables/tt_um_factory_test.def -rd output=/home/gonsolo/src/factory-test/runs/wokwi/58-klayout-streamout/tt_um_factory_test.klayout.gds -rd top=tt_um_factory_test -rd lyp=/home/gonsolo/src/factory-test/pdk/ihp-sg13g2/libs.tech/klayout/tech/sg13g2.lyp -rd lyt=/home/gonsolo/src/factory-test/pdk/ihp-sg13g2/libs.tech/klayout/tech/sg13g2.lyt -rd lym=/home/gonsolo/src/factory-test/pdk/ihp-sg13g2/libs.tech/klayout/tech/sg13g2.map -rd input-lef=/home/gonsolo/src/factory-test/pdk/ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_tech.lef -rd input-lef=/home/gonsolo/src/factory-test/pdk/ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_stdcell.lef -rd with-gds-file=/home/gonsolo/src/factory-test/pdk/ihp-sg13g2/libs.ref/sg13g2_stdcell/gds/sg13g2_stdcell.gds
