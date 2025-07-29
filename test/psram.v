@@ -42,8 +42,8 @@ module psram (
     if (!ce_n) begin
       state <= ST_CMD;
       cycle_count <= 0;
-      addr = 24'hFFFFFF;
-      data = 0;
+      addr <= 24'hFFFFFF;
+      data <= 0;
     end else if (ce_n) state <= ST_IDLE;
 
   always @(posedge sck)
@@ -71,15 +71,15 @@ module psram (
         if ((cycle_count - 16) % 2 == 0 || ce_n) begin
           RAM[addr] = data;
           //   $display("PSRAM: Write to %x, value: %x", addr, RAM[addr]);
-          addr = addr + 1;
+          addr <= addr + 1;
         end
 
   always @(posedge sck)
     if (state == ST_DUMMY || state == ST_DR)
       if (cycle_count >= 19)
         if ((cycle_count - 19) % 2 == 0) begin
-          data = RAM[addr];
-          addr = addr + 1;
+          data <= RAM[addr];
+          addr <= addr + 1;
           //      $display("PSRAM: Read from %x, value: %x", addr-1, data);
         end
 
@@ -87,7 +87,7 @@ module psram (
   always @(negedge sck)
     if (state == ST_DR) begin
       do_  = data[7:4];
-      data = data << 4;
+      data <= data << 4;
     end
 
   assign dio = (state == ST_DR) ? do_ : 4'bz;

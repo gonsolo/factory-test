@@ -3,6 +3,10 @@
 
 # defaults
 SIM ?= icarus
+#SIM ?= verilator
+#COMPILE_ARGS    += --no-timing # verilator
+#COMPILE_ARGS    += --Wno-fatal # verilator
+
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = tt_um_kianV_rv32ima_uLinux_SoC.v
